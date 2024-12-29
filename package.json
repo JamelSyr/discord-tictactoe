@@ -10,8 +10,7 @@
   },
   "files": [
     "config/locales",
-    "dist/bin",
-    "dist/src"
+    "dist/"
   ],
   "repository": {
     "type": "git",
