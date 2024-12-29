@@ -211,8 +211,6 @@ export default class DuelRequest {
             content: localize.__('duel.expire', { invited: this.invited.displayName }),
             embeds: []
         });
-        return this.manager.bot.eventHandler.emitEvent("ended", {
-            players: []
-        });
+  
     }
 }
