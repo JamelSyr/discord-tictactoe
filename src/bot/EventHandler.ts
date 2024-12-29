@@ -7,6 +7,7 @@ export type EventTypes = {
     newGame: (data: { players: Entity[] }) => void;
     win: (data: { winner: Entity; loser: Entity }) => void;
     tie: (data: { players: Entity[] }) => void;
+    ended: (data: { players: Entity[] }) => void;
 };
 
 /**
@@ -31,6 +32,7 @@ export default class EventHandler {
         this.supportEvent('newGame');
         this.supportEvent('win');
         this.supportEvent('tie');
+        this.supportEvent("ended");
     }
 
     /**

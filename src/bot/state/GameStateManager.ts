@@ -129,6 +129,9 @@ export default class GameStateManager {
                 players: gameboard.entities
             });
         }
+        this.bot.eventHandler.emitEvent("ended", {
+            players: gameboard.entities
+        });
 
         this.gameboards.splice(this.gameboards.indexOf(gameboard), 1);
     }
