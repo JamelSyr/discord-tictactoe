@@ -311,7 +311,7 @@ export default class GameBoard {
             await this.update(interaction);
         }
 
-        this.manager.endGame(this, winner);
+        this.manager.endGame(this, winner, this.expired);
     }
 
     /**

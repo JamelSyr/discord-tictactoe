@@ -118,7 +118,7 @@ export default class GameStateManager {
      * @param gameboard gameboard object that needs to be removed
      * @param winner winner of the game, undefined means game expiration, null is a tie
      */
-    public endGame(gameboard: GameBoard, winner?: Entity | null): void {
+    public endGame(gameboard: GameBoard, winner?: Entity | null, isExpired?: boolean): void {
         if (winner) {
             this.bot.eventHandler.emitEvent('win', {
                 winner,
@@ -130,7 +130,8 @@ export default class GameStateManager {
             });
         }
         this.bot.eventHandler.emitEvent("ended", {
-            players: gameboard.entities
+            // no players if the game is expired
+            players: isExpired ? [] : gameboard.entities
         });
 
         this.gameboards.splice(this.gameboards.indexOf(gameboard), 1);
