@@ -25,6 +25,7 @@
     "typescript"
   ],
   "dependencies": {
+    "discord-tictactoe": "github:JamelSyr/discord-tictactoe#builded",
     "discord.js": "^14.16.2"
   },
   "devDependencies": {

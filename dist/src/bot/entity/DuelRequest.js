@@ -96,11 +96,14 @@ class DuelRequest {
         }
     }
     async challengeExpired() {
-        return this.tunnel.end({
+        this.tunnel.end({
             allowedMentions: { parse: [] },
             components: [],
             content: localize_1.default.__('duel.expire', { invited: this.invited.displayName }),
             embeds: []
+        });
+        return this.manager.bot.eventHandler.emitEvent("ended", {
+            players: []
         });
     }
 }

@@ -205,11 +205,14 @@ export default class DuelRequest {
      * Called if the challenge has expired without answer.
      */
     private async challengeExpired(): Promise<void> {
-        return this.tunnel.end({
+        this.tunnel.end({
             allowedMentions: { parse: [] },
             components: [],
             content: localize.__('duel.expire', { invited: this.invited.displayName }),
             embeds: []
+        });
+        return this.manager.bot.eventHandler.emitEvent("ended", {
+            players: []
         });
     }
 }
